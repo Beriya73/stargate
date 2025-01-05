@@ -10,7 +10,8 @@ from web3 import AsyncWeb3, AsyncHTTPProvider
 # Настройка логирования
 file_log = logging.FileHandler('stargate.log', encoding='utf-8')
 console_out = logging.StreamHandler()
-logging.basicConfig(level=logging.INFO,
+logging.basicConfig(handlers=(file_log, console_out),
+                    level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(message)s")
 
 class CustomError(Exception):
